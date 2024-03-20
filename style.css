@@ -1,0 +1,45 @@
+    .navbar a {
+        color: green;
+        font-weight: bold;
+    }
+
+    .navbar button {
+        color: green;
+    }
+
+    #navbar-list {
+        position: absolute;
+        right: 0;
+    }
+
+    .container {
+        /* width: 80%; */
+        /* height: 80vh; */
+        overflow: auto;
+        border: 5px solid green;
+        border-radius: 20px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
+        padding: 0;
+        margin: 0 auto;
+        margin-top: 30px;
+        
+    }
+
+    #map {
+        height: 80vh;
+        width: 100%;
+    }
+
+    .login-form {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 10px;
+    }
+
+    .register-form {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 10px;
+    }
