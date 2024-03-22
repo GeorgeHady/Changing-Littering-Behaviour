@@ -26,7 +26,7 @@
   <body class="p-3 m-0 border-0 bd-example m-0 border-0 bg-body-tertiary">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Changing Littering Behaviour</a>
+       <a class="navbar-brand" href="index.html">Changing Littering Behaviour</a>
 
         <button
           class="navbar-toggler"
@@ -40,9 +40,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a href="index.html" class="nav-link active">Home / Map</a>
+              <a href="index.html" class="nav-link">Home / Map</a>
             </li>
             <li class="nav-item">
               <a href="data.html" class="nav-link">All Data</a>
@@ -57,7 +57,7 @@
               <a href="prompts.html" class="nav-link">Edit Sensors Sounds</a>
             </li>
 
-            <li class="nav-item" id="navbar-login">
+            <li class="nav-item active" id="navbar-login">
               <a href="login.html" class="nav-link">Login</a>
             </li>
           </ul>
@@ -65,7 +65,38 @@
       </div>
     </nav>
     <div class="container">
-      <div id="map"></div>
+      <!-- Login form -->
+      <div class="login-form row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
