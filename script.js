@@ -6,17 +6,17 @@ function initMap() {
     center: { lat: 43.238644, lng: -79.88817 },
   });
 
-  fetch("https://binproj.com/bins", { mode: "cors" })
+  fetch("https://binproj.com/api/bins", { mode: "cors" })
     .then((response) => response.json())
     .then((data) => {
       data.forEach((bin) => {
         var marker = new google.maps.Marker({
           position: { lat: bin.Latitude, lng: bin.Longitude },
           map: map,
-          title: "ID: " + bin.Id,
+          title: "ID: " + bin.BinID,
         });
         marker.addListener("click", function () {
-          window.open("bindata.png", "_blank");
+          window.open("https://binproj.com/bin/" + bin.BinID, "_blank");
         });
       });
     })

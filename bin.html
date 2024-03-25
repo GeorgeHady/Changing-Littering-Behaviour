@@ -15,14 +15,14 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0 bg-body-tertiary">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Changing Littering Behaviour</a>
+        <a class="navbar-brand" href="index.html"
+          >Changing Littering Behaviour</a
+        >
 
         <button
           class="navbar-toggler"
@@ -36,7 +36,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a href="index.html" class="nav-link">Home / Map</a>
             </li>
@@ -61,11 +61,60 @@
       </div>
     </nav>
     <div class="container">
-
-      
-
+      <div class="row mp-0">
+        <div class="col-lg-6 col-sm-12">
+          <image
+            class="col-12 img-fluid opacity-25"
+            src="img/smart_bin.jpg"
+            alt="Smart Bin image"
+          />
+        </div>
+        <div
+          class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center vh-50"
+          id="data-preview"
+        >
+          <div class="data-div">
+            <br />
+            <h2>Bin Data</h2>
+            <br />
+            <div class="row">
+              <label class="col-6" for="bin-id">Bin ID:</label>
+              <span class="col" id="bin-id"></span>
+            </div>
+            <div class="row">
+              <label class="col-6" for="latitude">Latitude:</label>
+              <span class="col" id="latitude"></span>
+            </div>
+            <div class="row">
+              <label class="col-6" for="longitude">Longitude:</label>
+              <span class="col" id="longitude"></span>
+            </div>
+            <div class="row">
+              <label class="col-6" for="events">Events:</label>
+              <span class="col" id="events"></span>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
 
-<script src="script.js"></script>
+<script>
+  let currentUrl = window.location.href;
+  let params = new URLSearchParams(window.location.search);
+  let id = params.get("id");
+
+  fetch("https://binproj.com/api/bin/" + id)
+    .then((response) => response.json())
+    .then((data) => {
+      document.querySelector("#bin-id").textContent = data.Bin.BinID;
+      document.querySelector("#latitude").textContent = data.Bin.Latitude;
+      document.querySelector("#longitude").textContent = data.Bin.Longitude;
+      document.querySelector("#events").textContent = data.Events
+        ? data.Events
+        : "No events";
+    })
+    .catch((error) => console.error("Error:", error));
+</script>

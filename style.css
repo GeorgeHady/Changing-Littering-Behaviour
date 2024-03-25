@@ -22,7 +22,7 @@
         padding: 0;
         margin: 0 auto;
         margin-top: 30px;
-
+        background-color: lightgoldenrodyellow;
     }
 
     #map {
@@ -39,4 +39,17 @@
 
     .login-form div {
         margin-bottom: 25px;
+    }
+
+    .mp-0 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .data-div {
+        font-size: 20px;
+    }
+
+    .data-div label {
+        font-weight: bold;
     }
