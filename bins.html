@@ -23,6 +23,7 @@
         <a class="navbar-brand" href="index.html"
           >Changing Littering Behaviour</a
         >
+
         <button
           class="navbar-toggler"
           type="button"
@@ -40,7 +41,7 @@
               <a href="index.html" class="nav-link">Home / Map</a>
             </li>
             <li class="nav-item">
-              <a href="bins.html" class="nav-link">All Data</a>
+              <a href="bins.html" class="nav-link active">All Data</a>
             </li>
             <li class="nav-item">
               <a href="events.html" class="nav-link">Events</a>
@@ -52,50 +53,44 @@
               <a href="prompts.html" class="nav-link">Edit Sensors Sounds</a>
             </li>
 
-            <li class="nav-item active" id="navbar-login">
-              <a href="login.html" class="nav-link active">Login</a>
+            <li class="nav-item" id="navbar-login">
+              <a href="login.html" class="nav-link">Login</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="container">
-      <h1 class="page-title">
-        Login
+      <h1 class="page-title mb-0">
+        All Bins Data
         <hr class="mp-0" />
       </h1>
-      <!-- Login form -->
-      <div class="login-form row justify-content-center">
-        <div class="col-md-6">
-          <div class="card">
-            <!-- <div class="card-header">Login</div> -->
-            <div class="card-body">
-              <form class="login-form">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">User Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputUsername"
-                    aria-describedby="username"
-                    placeholder="User Name"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="inputPassword"
-                    placeholder="Password"
-                  />
-                </div>
-                <button type="submit" class="btn btn-success">Login</button>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div>
+        <table class="table table-striped m-0 p-0">
+          <thead>
+            <tr>
+              <th class="bg-success text-white">Bin ID</th>
+              <th class="bg-success text-white">Latitude</th>
+              <th class="bg-success text-white">Longitude</th>
+            </tr>
+          </thead>
+          <tbody id="bins-data"></tbody>
+        </table>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  fetch("https://binproj.com/api/bins")
+    .then((response) => response.json())
+    .then((data) => {
+      let tableBody = "<tbody>";
+      data.forEach((bin) => {
+        tableBody += `<tr onclick="window.location='bin.html?id=${bin.BinID}'"><td>${bin.BinID}</td><td>${bin.Latitude}</td><td>${bin.Longitude}</td></tr>`;
+      });
+      tableBody += "</tbody>";
+      document.getElementById("bins-data").innerHTML = tableBody;
+    })
+    .catch((error) => console.error("Error:", error));
+</script>
