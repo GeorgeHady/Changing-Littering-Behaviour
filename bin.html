@@ -41,16 +41,16 @@
               <a href="index.html" class="nav-link">Home / Map</a>
             </li>
             <li class="nav-item">
-              <a href="bins.html" class="nav-link">All Data</a>
-            </li>
-            <li class="nav-item">
-              <a href="events.html" class="nav-link">Events</a>
+              <a href="stats.html" class="nav-link">Stats</a>
             </li>
             <li class="nav-item">
               <a href="add.html" class="nav-link">Add New Bin</a>
             </li>
             <li class="nav-item">
-              <a href="prompts.html" class="nav-link">Edit Sensors Sounds</a>
+              <a href="new_prompt.html" class="nav-link">Add New Prompt</a>
+            </li>
+            <li class="nav-item">
+              <a href="prompts.html" class="nav-link">Prompts</a>
             </li>
 
             <li class="nav-item" id="navbar-login">
@@ -91,10 +91,6 @@
               <label class="col-4" for="longitude">Longitude:</label>
               <span class="col-8" id="longitude"></span>
             </div>
-            <div class="row">
-              <label class="col-4" for="events">Events:</label>
-              <span class="col-8" id="events"></span>
-            </div>
             <br />
             <div class="col-4">
               <div
@@ -106,13 +102,55 @@
                   onclick="window.location.href='edit.html?id='+ params.get('id')"
                   class="btn btn-success"
                 >
-                  Edit This Bin
+                  Edit
                 </button>
               </div>
               <br />
             </div>
             <br />
           </div>
+        </div>
+      </div>
+      <!-- EVENTS -->
+      <div class="row mp-0">
+        <div class="col-12  mp-0">
+          <h2 class="page-title mp-0">Events</h2>
+          <table class="table table-striped mp-0">
+            <thead>
+              <tr>
+                <th class="bg-success text-white">Event Id</th>
+                <th class="bg-success text-white">Event Time</th>
+                <th class="bg-success text-white">Deposit Delta</th>
+                <th class="bg-success text-white">Prompt Name</th>
+              </tr>
+            </thead>
+            <tbody id="events-data">
+              <tr>
+                <td>1</td>
+                <td>2021-12-01 12:00:00</td>
+                <td>5</td>
+                <td>prompt1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>2021-12-01 12:00:00</td>
+                <td>5</td>
+                <td>prompt1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>2021-12-01 12:00:00</td>
+                <td>5</td>
+                <td>prompt1</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>2021-12-01 12:00:00</td>
+                <td>5</td>
+                <td>prompt1</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -130,9 +168,6 @@
       document.querySelector("#bin-id").textContent = data.Bin.BinID;
       document.querySelector("#latitude").textContent = data.Bin.Latitude;
       document.querySelector("#longitude").textContent = data.Bin.Longitude;
-      document.querySelector("#events").textContent = data.Events
-        ? data.Events
-        : "No events";
     })
     .catch((error) => console.error("Error:", error));
 </script>
